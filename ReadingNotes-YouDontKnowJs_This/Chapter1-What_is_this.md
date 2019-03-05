@@ -19,13 +19,13 @@ var you = {
     name:'reader'
 };
 
-identify.call(you);  // KYLE
-identify.call(me);  // READER
-speak.call(you);  // Hello, I'm KYLE
-speak.call(me);  // Hello, I'm READER
+identify.call(me);  // KYLE
+identify.call(you);  // READER
+speak.call(me);  // Hello, I'm KYLE
+speak.call(you);  // Hello, I'm READER
 ```
 
-上面的代码块体现出了this 允许多个上下文（me 和 you）重复使用函数`identify` 和`speak` ,而不是俄日每个对象创建单独的函数。
+上面的代码块体现出了this 允许多个上下文（me 和 you）重复使用函数`identify` 和`speak` ,而不是为每个对象创建单独的函数。
 
 ## 关于this的困惑
 
@@ -66,7 +66,7 @@ console.log(foo.count); //0
     var i ;
     
     for(i=0;i<10;i++){
-        if(I>5){
+        if(i>5){
             foo(i);
         }
     }
@@ -81,7 +81,7 @@ console.log(foo.count); //0
 
 问题：看似解决问题实际忽略了真正的问题： `this`到底指代的是什么以及工作原理是什么。上面的解决方式实际上是回到了`词法作用域`
 
-如果想引用函数对象，通常通过只想他的词法标识符（变量）来引用函数对象。
+如果想引用函数对象，通常通过指向他的词法标识符（变量）来引用函数对象。
 
 ```
 function foo(){
